@@ -26,7 +26,7 @@ public class BookDAOImpl extends BaseDAO<Book> implements BookDAO {
 		cb.setPageNo(page.getPageNo());
 		
 		page.setList(getPageList(cb, 3));
-		return null;
+		return page;
 	}
 
 	@Override

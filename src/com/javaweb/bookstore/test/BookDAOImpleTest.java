@@ -36,7 +36,10 @@ public class BookDAOImpleTest {
 
 	@Test
 	public void testGetTotalBookNum() {
-		fail("Not yet implemented");
+		BookDAOImpl bookImple = new BookDAOImpl();
+		CriteriaBook cb = new CriteriaBook(50, 90, 5);
+		long num = bookImple.getTotalBookNum(cb);
+		System.out.println(num);
 	}
 
 	@Test

@@ -8,8 +8,8 @@
 </head>
 <body>
     <% 
-       // response.sendRedirect(request.getContextPath() + "/bookServlet?method=getBooks");
-        response.sendRedirect(request.getContextPath() + "/bookServlet");
+        response.sendRedirect(request.getContextPath() + "/bookServlet?method=getBooks");
+       // response.sendRedirect(request.getContextPath() + "/bookServlet");
     %>
 </body>
 </html>

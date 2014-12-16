@@ -26,6 +26,7 @@ public class BookServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -38,7 +39,7 @@ public class BookServlet extends HttpServlet {
 		try {
 			Method method = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
 			method.setAccessible(true);
-			method.invoke(request, response);
+			method.invoke(this, request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +73,7 @@ public class BookServlet extends HttpServlet {
 		Page<Book> page = bookService.getPage(criteriaBook);
 		request.setAttribute("bookPage", page);
 		
-		request.getRequestDispatcher("/WEB-INFO/pages/books.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/books.jsp").forward(request, response);
 	}
 
 }

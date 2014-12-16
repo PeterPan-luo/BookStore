@@ -65,7 +65,7 @@ public class Page<T> {
 		return false;
 	}
 	
-	public boolean isHaePrev() {
+	public boolean isHasPrev() {
 		if (getPageNo() > 1) {
 			return true;
 		}
@@ -80,7 +80,7 @@ public class Page<T> {
 	}
 	
 	public int getPrevPage() {
-		if (isHaePrev()) {
+		if (isHasPrev()) {
 			return getPageNo() - 1;
 		}
 		return getPageNo();	

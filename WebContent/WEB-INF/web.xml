@@ -10,8 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<description></description>
-  	<display-name>BookServlet</display-name>
   	<servlet-name>BookServlet</servlet-name>
   	<servlet-class>com.javaweb.bookstore.servlet.BookServlet</servlet-class>
   </servlet>
