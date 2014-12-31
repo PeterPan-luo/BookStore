@@ -10,8 +10,10 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+
 import com.javaweb.bookstore.dao.Dao;
 import com.javaweb.bookstore.db.JdbcUtils;
+import com.javaweb.bookstore.domain.Account;
 import com.javaweb.bookstore.utils.ReflectionUtils;
 
 public class BaseDAO<T> implements Dao<T> {
@@ -131,5 +133,4 @@ public class BaseDAO<T> implements Dao<T> {
 		}
 		
 	}
-
 }

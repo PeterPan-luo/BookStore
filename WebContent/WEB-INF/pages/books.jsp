@@ -50,6 +50,13 @@
 </head>
 <body>
 	<center>
+		<c:if test="${param.title != null }">
+			您已经将 ${param.title} 放入到购物车中. 
+			<br><br>
+		</c:if>
+		<c:if test="${!empty sessionScope.ShoppingCar.books }">
+			您的购物车中有${sessionScope.ShoppingCar.bookNumber }本书,<a href="bookServlet?method=forwardPage&page=cart&pageNo=${bookPage.pageNo }">查看购物车</a>
+		</c:if>
 		<br><br>
 		<form action="bookServlet?method=getBooks" method="post">
 			Price:
@@ -64,11 +71,12 @@
 			<c:forEach items="${bookPage.list }" var="book">
 				<tr>
 					<td>
-						<a href="bookServlet?method=getBook&pageNo=${bookPage.pageNo}&d=${book.id}">${book.title }</a>
+						<a href="bookServlet?method=getBook&pageNo=${bookPage.pageNo}&id=${book.id}">${book.title }</a>
 						<br>
 						${book.author }
 					</td>
 					<td>${book.price }</td>
+					<td><a href="bookServlet?method=addToCart&pageNo=${bookPage.pageNo }&id=${book.id}&title=${book.title}">加入购物车</a></td>
 				</tr>
 			</c:forEach>
 			
