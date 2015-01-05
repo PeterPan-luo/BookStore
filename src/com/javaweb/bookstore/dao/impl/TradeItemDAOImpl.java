@@ -1,0 +1,34 @@
+package com.javaweb.bookstore.dao.impl;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import com.javaweb.bookstore.dao.TradeItemDAO;
+import com.javaweb.bookstore.domain.TradeItem;
+
+public class TradeItemDAOImpl extends BaseDAO<TradeItem> implements TradeItemDAO {
+
+	@Override
+	public void batchSave(Collection<TradeItem> items) {
+		String sql = " INSERT INTO tradeitem(bookid, quantity, tradeid) VALUES(?, ?, ?)";
+		Object[][] params = new Object[items.size()][3];
+		List<TradeItem> tradeItems = new ArrayList<>(items);
+		for (int i = 0; i < tradeItems.size(); i++) {
+			params[i][0] = tradeItems.get(i).getBookId();
+			params[i][1] = tradeItems.get(i).getQuantity();
+			params[i][2] = tradeItems.get(i).getTradeId();
+		}
+		batch(sql, params);
+	}
+
+	@Override
+	public Set<TradeItem> getTradeItemsWithTradeId(int tradeId) {
+		String sqlString = "SELECT itemId, bookId, quantity, tradeId from tradeitem where tradeid = ?";
+		return new HashSet<>(queryForList(sqlString, tradeId));
+	}
+
+}
